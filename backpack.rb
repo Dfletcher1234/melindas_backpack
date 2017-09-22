@@ -1,6 +1,6 @@
 class Backpack
-  def initialize(attributes)
-    @attributes = attributes # a hash containing day_of_week and weather keys
+  def initialize(day_and_weather)
+    @day_and_weather = day_and_weather # a hash containing day_of_week and weather keys
     @items = []
     prepare
   end
@@ -11,8 +11,8 @@ class Backpack
 
   def prepare
     # set up local variables used by rest of prepare method
-    x = @attributes[:weather]
-    day_of_week = @attributes[:day_of_week]
+    x = @day_and_weather[:weather]
+    day_of_week = @day_and_weather[:day_of_week]
 
     # Ensure appropriate clothing is added to backpack
     if x == 'rainy'
@@ -48,7 +48,7 @@ class Backpack
   def my_func
     output = []
     output << "Melinda, here's your packing list!"
-    output << "Day: #{@attributes[:day_of_week]}, Weather: #{@attributes[:weather]}"
+    output << "Day: #{@day_and_weather[:day_of_week]}, Weather: #{@day_and_weather[:weather]}"
     output << ""
 
     @items.each do |item|
